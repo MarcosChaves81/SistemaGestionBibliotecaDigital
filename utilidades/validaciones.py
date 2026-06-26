@@ -1,3 +1,5 @@
+from datetime import datetime
+
 def validar_campo_obligatorio(valor: str, nombre_campo: str) -> str:
     valor = valor.strip() #quita espacios al priincippio y al final
 
@@ -35,4 +37,18 @@ def validar_email(valor: str) -> str:
     if "@" not in valor or "." not in valor:
         raise ValueError("El email debe contener '@' y '.'.")
 
+    return valor
+
+def validar_cantidad_paginas(valor:int)->int:
+    if valor < 1:
+        raise ValueError("La cantidad de páginas debe ser un número positivo")
+    return valor
+
+
+def validar_anio(valor:int)->int:
+    anio_actual = datetime.now().year
+    if valor < 1:
+        raise ValueError("El año de publicación del libro debe ser un número positivo")
+    if valor > anio_actual:
+        raise ValueError("El año de publicación debe ser un número menor o igual al año actual")
     return valor
