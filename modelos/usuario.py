@@ -1,3 +1,5 @@
+from modelos.persona import Persona
+
 class Usuario(Persona):
    
     def mostrar_info(self):
