@@ -38,5 +38,12 @@ class GestionUsuarios:
         usuario = Usuario(nombre, apellido, dni, email)
         self._usuarios.append(usuario)
         self._guardar()
-        
+
+ @anunciar_accion("eliminó")
+    def eliminar(self, admin, dni):
+        usuario = self.buscar_por_dni(dni)
+        if not usuario:
+            raise ValueError(f"No se encontró un usuario con DNI {dni}")
+        self._usuarios.remove(usuario)
+        self._guardar()
   
