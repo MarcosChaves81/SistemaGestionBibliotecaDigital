@@ -46,4 +46,18 @@ class GestionUsuarios:
             raise ValueError(f"No se encontró un usuario con DNI {dni}")
         self._usuarios.remove(usuario)
         self._guardar()
+
+    @anunciar_accion("modificó")
+    def modificar(self, admin, dni, nombre=None, apellido=None, email=None):
+        usuario = self.buscar_por_dni(dni)
+        if not usuario:
+            raise ValueError(f"No se encontró un usuario con DNI {dni}")
+        if nombre:
+            usuario.nombre = nombre
+        if apellido:
+            usuario.apellido = apellido
+        if email:
+            usuario.email = email
+        self._guardar()
+        
   
