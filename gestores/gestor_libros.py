@@ -48,6 +48,21 @@ class GestionLibros:
             raise ValueError("No se puede eliminar un libro que está prestado")
         self._libros.remove(libro)
         self._guardar()
-        
+
+
+ @anunciar_accion("modificó")
+    def modificar(self, admin, isbn, titulo=None, autor=None, anio=None, paginas=None):
+        libro = self.buscar_por_isbn(isbn)
+        if not libro:
+            raise ValueError(f"No se encontró un libro con ISBN {isbn}")
+        if titulo:
+            libro.titulo = titulo
+        if autor:
+            libro.autor = autor
+        if anio:
+            libro.anio_publicacion = anio
+        if paginas:
+            libro.cantidad_paginas = paginas
+        self._guardar()
 
   
