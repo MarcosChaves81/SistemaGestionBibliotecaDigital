@@ -27,4 +27,12 @@ class GestionPrestamos:
             raise ValueError("El libro ya tiene un préstamo activo")
         prestamo = Prestamo(usuario, libro)
         self._prestamos.append(prestamo)
+
+  @anunciar_accion("devolvió")
+    def registrar_devolucion(self, admin, isbn):
+        prestamo = self.buscar_prestamo_activo(isbn)
+        if not prestamo:
+            raise ValueError(f"No hay un préstamo activo para el ISBN {isbn}")
+        prestamo.devolver()
+        
         
