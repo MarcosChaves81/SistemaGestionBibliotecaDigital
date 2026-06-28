@@ -1,7 +1,7 @@
 
 class MetaEntidad(type):
   
-    def __new__(cls, nombre, bases, atributos):
+    def __new__(cls, nombre, bases, atributos):  # Todas las clases que hereden de EntidadBase deben implementar mostrar_info()
 
         if nombre != "EntidadBase" and "mostrar_info" not in atributos:
             raise TypeError(
