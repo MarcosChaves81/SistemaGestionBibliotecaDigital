@@ -1,6 +1,6 @@
 from utilidades.validaciones import validar_campo_obligatorio, validar_anio, validar_cantidad_paginas
-
-class Libro:
+from modelos.entidad_base import EntidadBase 
+class Libro(EntidadBase):
     def __init__(self, titulo:str, autor:str, isbn:str, anio_publicacion:int, cantidad_paginas:int):
         self.titulo = titulo
         self.autor = autor
