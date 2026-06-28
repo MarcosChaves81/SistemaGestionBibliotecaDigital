@@ -39,7 +39,7 @@ class GestionLibros:
         self._libros.append(libro)
         self._guardar()
 
- @anunciar_accion("eliminó")
+    @anunciar_accion("eliminó")
     def eliminar(self, admin, isbn):
         libro = self.buscar_por_isbn(isbn)
         if not libro:
@@ -50,7 +50,7 @@ class GestionLibros:
         self._guardar()
 
 
- @anunciar_accion("modificó")
+    @anunciar_accion("modificó")
     def modificar(self, admin, isbn, titulo=None, autor=None, anio=None, paginas=None):
         libro = self.buscar_por_isbn(isbn)
         if not libro:
@@ -65,7 +65,7 @@ class GestionLibros:
             libro.cantidad_paginas = paginas
         self._guardar()
 
-  def listar(self):
+    def listar(self):
         if not self._libros:
             print("No hay libros registrados.")
             return

@@ -31,7 +31,7 @@ class GestionUsuarios:
                 return usuario
         return None
 
-@anunciar_accion("agregó")
+    @anunciar_accion("agregó")
     def agregar(self, admin, nombre, apellido, dni, email):
         if self.buscar_por_dni(dni):
             raise ValueError(f"Ya existe un usuario con DNI {dni}")
@@ -39,7 +39,7 @@ class GestionUsuarios:
         self._usuarios.append(usuario)
         self._guardar()
 
- @anunciar_accion("eliminó")
+    @anunciar_accion("eliminó")
     def eliminar(self, admin, dni):
         usuario = self.buscar_por_dni(dni)
         if not usuario:
