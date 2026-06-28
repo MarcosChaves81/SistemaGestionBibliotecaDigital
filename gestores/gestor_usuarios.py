@@ -31,4 +31,12 @@ class GestionUsuarios:
                 return usuario
         return None
 
+@anunciar_accion("agregó")
+    def agregar(self, admin, nombre, apellido, dni, email):
+        if self.buscar_por_dni(dni):
+            raise ValueError(f"Ya existe un usuario con DNI {dni}")
+        usuario = Usuario(nombre, apellido, dni, email)
+        self._usuarios.append(usuario)
+        self._guardar()
+        
   
