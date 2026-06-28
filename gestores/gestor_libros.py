@@ -65,4 +65,12 @@ class GestionLibros:
             libro.cantidad_paginas = paginas
         self._guardar()
 
+  def listar(self):
+        if not self._libros:
+            print("No hay libros registrados.")
+            return
+        for libro in self._libros:
+            print(libro.mostrar_info())
+
+
   
