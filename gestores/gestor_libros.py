@@ -39,4 +39,15 @@ class GestionLibros:
         self._libros.append(libro)
         self._guardar()
 
+ @anunciar_accion("eliminó")
+    def eliminar(self, admin, isbn):
+        libro = self.buscar_por_isbn(isbn)
+        if not libro:
+            raise ValueError(f"No se encontró un libro con ISBN {isbn}")
+        if not libro.disponible:
+            raise ValueError("No se puede eliminar un libro que está prestado")
+        self._libros.remove(libro)
+        self._guardar()
+        
+
   
