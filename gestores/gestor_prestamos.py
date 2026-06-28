@@ -34,5 +34,15 @@ class GestionPrestamos:
         if not prestamo:
             raise ValueError(f"No hay un préstamo activo para el ISBN {isbn}")
         prestamo.devolver()
+
+  def listar_prestamos_activos(self):
+        activos = [p for p in self._prestamos if p.fecha_devolucion is None]
+        if not activos:
+            print("No hay préstamos activos.")
+            return
+        for prestamo in activos:
+            print(f"Usuario: {prestamo.usuario.nombre} {prestamo.usuario.apellido} | "
+                  f"Libro: {prestamo.libro.titulo} | "
+                  f"Fecha préstamo: {prestamo.fecha_prestamo.strftime('%d/%m/%Y')}")
         
         
