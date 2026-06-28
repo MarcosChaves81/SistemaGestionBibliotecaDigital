@@ -60,4 +60,11 @@ class GestionUsuarios:
             usuario.email = email
         self._guardar()
         
-  
+    def listar(self):
+        if not self._usuarios:
+            print("No hay usuarios registrados.")
+            return
+        for usuario in self._usuarios:
+            print(usuario.mostrar_info())
+
+
