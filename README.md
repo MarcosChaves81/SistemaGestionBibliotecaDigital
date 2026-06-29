@@ -15,7 +15,34 @@ Este proyecto consiste en el desarrollo de un Sistema de Gestión de Biblioteca 
 En su apartado técnico, el sistema destaca por la implementación rigurosa de conceptos de programacion, tales como estructuras de herencia y comportamiento polimórfico, relaciones explícitas de agregación y composición para el modelado de datos, la creación de decoradores personalizados e incluso lógica avanzada mediante metaclases de Python. Asimismo, la arquitectura incorpora un patrón de diseño debidamente justificado para optimizar la creación o el comportamiento de los componentes, todo respaldado y documentado visualmente a través de un diagrama de clases UML completo.
 
 ## Explicacion de la resolucion 
+Se escogió dividir el sistema en modelos, gestores y utilidades, con el fin de mantener una arquitectura organizada y facilitar el mantenimiento del código.
+
+Las entidades principales (Libro, Usuario y Prestamo) representan la información de la problemática.
+
+Los gestores son los encargados de ejecutar las operaciones de alta, baja, modificación y búsqueda de datos.
+
+Con el objetivo de reforzar los conocimientos adquiridos en la materia, se realizaron:
+
+- Una clase abstracta.
+- Polimorfismo usando el método mostrar_info().
+- El patrón Singleton para asegurar una única instancia del sistema.
+- Una metaclase para obligar a implementar el método mostrar_info.
+- Un decorador personalizado que registre las acciones realizadas por los administradores.
+También se han agregado validaciones para verificar la integridad de los datos y se ha utilizado persistencia en archivos de texto para almacenar la información del sistema.
+
+El proyecto está organizado utilizando gestores especializados para cada entidad.
+
+- GestionLibros
+- GestionUsuarios
+- GestionPrestamos
+
+La clase *SistemaBiblioteca* centraliza la creación y coordinación de los gestores.
+
+El diagrama UML se encuentra dentro de la carpeta:
 
 
-## 
+diagramas/
+
+
+## Proyecto desarrollado con fines exclusivamente académicos.
 
